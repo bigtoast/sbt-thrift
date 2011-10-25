@@ -5,7 +5,7 @@ organization := "atd"
 
 name := "sbt-thrift"
 
-version := "0.1-SNAPSHOT"
+version := "0.2"
 
 publishTo := Some(Resolver.file("bigtoast.github.com", file(Path.userHome + "/Projects/Destroyer/bigtoast.github.com/repo")))
 
