@@ -1,0 +1,8 @@
+[0.3] 10.27.2011
+ * Changed the thrift command to use ! rather than Process(cmd).run()
+	because it looks like Process run will run the process in a
+	different thread. This was causing some java files not to be
+	compiled in the first call to compile.
+	
+[0.2] 10.26.2011
+ * Initial release

@@ -10,13 +10,13 @@ Add the following to your `project/plugins/build.sbt`:
 
     resolvers += "bigtoast-github" at "http://bigtoast.github.com/repo/"
 
-    libraryDependencies += "atd" %% "sbt-thrift" % "0.2"
+    libraryDependencies += "atd" %% "sbt-thrift" % "0.3"
 
 ## sbt-0.11.0
 
     resolvers += "bigtoast-github" at "http://bigtoast.github.com/repo/"
 
-    addSbtPlugin("atd" % "sbt-thrift" % "0.2")
+    addSbtPlugin("atd" % "sbt-thrift" % "0.3")
 
 ### Step 2: Add sbt-thrift settings to your build
 
