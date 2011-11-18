@@ -10,7 +10,7 @@ Add the following to your `project/plugins/build.sbt`:
 
     resolvers += "bigtoast-github" at "http://bigtoast.github.com/repo/"
 
-    libraryDependencies += "atd" %% "sbt-thrift" % "0.3"
+    libraryDependencies += "atd" %% "sbt-thrift" % "0.4"
 
 ## sbt-0.11.0
 
@@ -64,6 +64,26 @@ Or if you are using a build object extending from Build:
                 <td> <b>thriftOutputDir</b> </td>
                 <td>The output dir for the generated sources. This directory will be added to sourceManaged so it will be automatically get compiled when you run compile. This defaults to 'target/generated-sources'.</td>
         </tr>
+        <tr>
+                <td> <b>thriftJavaOptions</b> </td>
+                <td>Additional options to thrift compiler for java generation.</td>
+        </tr>
+        <tr>
+                <td> <b>thriftJavaEnabled</b> </td>
+                <td> Are we want generate java source (?)  Default is true.</td>
+        </tr>
+        <tr>
+                <td> <b>thriftJsEnabled</b> </td>
+                <td> Are we want generate javascript source (?)  Default is false.</td>
+        </tr>
+        <tr>
+                <td> <b>thriftJsOutputDir</b> </td>
+                <td>The output dir for the generated javascript. This directory will be added to resourceManaged so it will be automatically get compiled during generation of resources. This defaults to 'target/gen-js'.</td>
+        </tr>
+        <tr>
+                <td> <b>thriftJsOptions</b> </td>
+                <td>Additional options to thrift compiler for javascript generation.</td>
+        </tr>
 
 </table>
 
@@ -71,8 +91,12 @@ Or if you are using a build object extending from Build:
 
 <table>
         <tr>
-                <td> <b>thrift-generate-java</b> </td>
+                <td> <b>thrift:generate-java</b> </td>
                 <td>This will run generate java sources from the thrift sources. This task is automatically executed when compile is run.</td>
+        </tr>
+        <tr>
+                <td> <b>thrift:generate-js</b> </td>
+                <td>This will run generate javascript sources from the thrift sources. This task is automatically executed when resource are prepared (test or package) if thriftJsEnabled is set to true /td>
         </tr>
 
 </table>
