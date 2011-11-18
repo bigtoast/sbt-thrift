@@ -1,3 +1,7 @@
+[0.4] 11.18.2011
+ * Merged in pull request from rssh. This adds javascript generation and
+	refactors the compile thrift into a method.
+
 [0.3] 10.27.2011
  * Changed the thrift command to use ! rather than Process(cmd).run()
 	because it looks like Process run will run the process in a

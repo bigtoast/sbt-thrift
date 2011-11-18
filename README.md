@@ -16,7 +16,7 @@ Add the following to your `project/plugins/build.sbt`:
 
     resolvers += "bigtoast-github" at "http://bigtoast.github.com/repo/"
 
-    addSbtPlugin("atd" % "sbt-thrift" % "0.3")
+    addSbtPlugin("atd" % "sbt-thrift" % "0.4")
 
 ### Step 2: Add sbt-thrift settings to your build
 
@@ -70,11 +70,11 @@ Or if you are using a build object extending from Build:
         </tr>
         <tr>
                 <td> <b>thriftJavaEnabled</b> </td>
-                <td> Are we want generate java source (?)  Default is true.</td>
+                <td> Are we generating java source (?)  Default is true.</td>
         </tr>
         <tr>
                 <td> <b>thriftJsEnabled</b> </td>
-                <td> Are we want generate javascript source (?)  Default is false.</td>
+                <td> Are we generating javascript source (?)  Default is false.</td>
         </tr>
         <tr>
                 <td> <b>thriftJsOutputDir</b> </td>
@@ -104,7 +104,7 @@ Or if you are using a build object extending from Build:
 
 Warnings and Notes
 ------------------
-This is my second sbt plugin. So far it has been used in development environments at work and in Jenkins builds. It is pretty straight forward and only generates java. If other languages are requested please let me know.
+This is my second sbt plugin. So far it has been used in development environments at work and in Jenkins builds. It is pretty straight forward and generates java and javascript. If other languages are requested please let me know.
 
 If any bugs are found or features wanted please file an issue in the github project. I will do my best to accommodate.
 
@@ -116,3 +116,8 @@ I used the following plugins as reference
  * my sbt-liquibase plugin
  * sbt-protobuf plugin for sbt 0.10
 
+
+Contributors
+------------
+Andrew Headrick [bigtoast]("http://github.com/bigtoast")
+Ruslan Shevchenko [rssh]("http://github.com/rssh")
