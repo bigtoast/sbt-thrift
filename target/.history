@@ -1,0 +1,8 @@
+clean
+compile
+tasks
+publish
+exit
+clean
+publish
+exit
