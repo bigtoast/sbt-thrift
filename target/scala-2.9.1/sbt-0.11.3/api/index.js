@@ -1,1 +1,0 @@
-Index.PACKAGES = {"atd" : [], "atd.sbtthrift" : [{"object" : "atd\/sbtthrift\/ThriftPlugin$.html", "name" : "atd.sbtthrift.ThriftPlugin"}]};
