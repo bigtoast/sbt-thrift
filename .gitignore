@@ -5,3 +5,6 @@ bin
 .classpath
 *.class
 **/*.class
+.*
+
+
