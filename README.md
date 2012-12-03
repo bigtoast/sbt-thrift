@@ -1,29 +1,21 @@
-Thrift plugin for sbt 0.10+ and 0.11+
+Thrift plugin for sbt 0.12+
 ====================================
 
 # Instructions for use:
 ### Step 1: Include the plugin in your build
 
-Add the following to your `project/plugins/build.sbt`:
-
-## sbt-0.10.1
+Add the following to your `project/plugins.sbt`:
 
     resolvers += "bigtoast-github" at "http://bigtoast.github.com/repo/"
 
-    libraryDependencies += "atd" %% "sbt-thrift" % "0.4"
-
-## sbt-0.11.0
-
-    resolvers += "bigtoast-github" at "http://bigtoast.github.com/repo/"
-
-    addSbtPlugin("atd" % "sbt-thrift" % "0.4")
+    addSbtPlugin("atd" % "sbt-thrift" % "0.6")
 
 ### Step 2: Add sbt-thrift settings to your build
 
 Add the following to your 'build.sbt' ( if you are using build.sbt )
 
 
-    import atd.sbtthrift.ThriftPlugin
+    import com.github.bigtoast.sbtthrift.ThriftPlugin
 
     seq(ThriftPlugin.thriftSettings: _*)
 
@@ -31,7 +23,7 @@ Or if you are using a build object extending from Build:
 
     import sbt._
     import Keys._
-    import atd.sbtthrift.ThriftPlugin
+    import com.github.bigtoast.sbtthrift.ThriftPlugin
 
     class BuildWithThriftShiz extends Build {
          lazy val seniorProject = Project("hola", file("."), settings = 
@@ -85,6 +77,32 @@ Or if you are using a build object extending from Build:
                 <td>Additional options to thrift compiler for javascript generation.</td>
         </tr>
 
+        <tr>
+                <td> <b>thriftRubyEnabled</b> </td>
+                <td> Are we generating ruby source (?)  Default is false.</td>
+        </tr>
+        <tr>
+                <td> <b>thriftRubyOutputDir</b> </td>
+                <td>The output dir for the generated Ruby. This directory will be added to sourceManaged so it will be automatically get compiled during generation of resources. This defaults to 'target/gen-rb'.</td>
+        </tr>
+        <tr>
+                <td> <b>thriftRubyOptions</b> </td>
+                <td>Additional options to thrift compiler for Ruby generation.</td>
+        </tr>
+
+        <tr>
+                <td> <b>thriftPythonEnabled</b> </td>
+                <td> Are we generating Python source (?)  Default is false.</td>
+        </tr>
+        <tr>
+                <td> <b>thriftPythonOutputDir</b> </td>
+                <td>The output dir for the generated Python. This directory will be added to sourceManaged so it will be automatically get compiled during generation of resources. This defaults to 'target/gen-py'.</td>
+        </tr>
+        <tr>
+                <td> <b>thriftPythonOptions</b> </td>
+                <td>Additional options to thrift compiler for Python generation.</td>
+        </tr>
+
 </table>
 
 ## Tasks
@@ -96,15 +114,22 @@ Or if you are using a build object extending from Build:
         </tr>
         <tr>
                 <td> <b>thrift:generate-js</b> </td>
-                <td>This will run generate javascript sources from the thrift sources. This task is automatically executed when resource are prepared (test or package) if thriftJsEnabled is set to true /td>
+                <td>This will run generate javascript sources from the thrift sources. This task is automatically executed during the compile phase if thriftJsEnabled is set to true /td>
         </tr>
+        <tr>
+                <td> <b>thrift:generate-ruby</b> </td>
+                <td>This will run generate Ruby sources from the thrift sources. This task is automatically executed during the compile phase if thriftRubyEnabled is set to true /td>
+        </tr>
+         <tr>
+                 <td> <b>thrift:generate-python</b> </td>
+                 <td>This will run generate Python sources from the thrift sources. This task is automatically executed during the compile phase if thriftPythonEnabled is set to true /td>
+         </tr>
 
 </table>
 
 
-Warnings and Notes
+Notes
 ------------------
-This is my second sbt plugin. So far it has been used in development environments at work and in Jenkins builds. It is pretty straight forward and generates java and javascript. If other languages are requested please let me know.
 
 If any bugs are found or features wanted please file an issue in the github project. I will do my best to accommodate.
 

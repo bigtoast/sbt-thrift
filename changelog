@@ -1,3 +1,12 @@
+[0.6] 12-3-2012
+  * Added support for ruby and python
+  * Made thrift configs watched sources so they will be automatically
+	compiled with changes when ~ is used
+  * Added file cache to files won't be compiled when there aren't
+	changes. ( this isn't really working though )
+  * Changed org name from 'atd' to 'com.github.bigtoast'
+  * Upped to sbt 0.12
+
 [0.4] 11.18.2011
  * Merged in pull request from rssh. This adds javascript generation and
 	refactors the compile thrift into a method.
