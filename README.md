@@ -8,7 +8,7 @@ Add the following to your `project/plugins.sbt`:
 
     resolvers += "bigtoast-github" at "http://bigtoast.github.com/repo/"
 
-    addSbtPlugin("atd" % "sbt-thrift" % "0.6")
+    addSbtPlugin("com.github.bigtoast" % "sbt-thrift" % "0.6")
 
 ### Step 2: Add sbt-thrift settings to your build
 
