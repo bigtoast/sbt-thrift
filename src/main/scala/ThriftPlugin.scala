@@ -1,4 +1,3 @@
-
 package com.github.bigtoast.sbtthrift
 
 import sbt._
@@ -23,7 +22,7 @@ object ThriftPlugin extends Plugin {
   val thriftJsEnabled   = SettingKey[Boolean]("js-enabled", "javascript generation is enabled. Default - no")
 
   val thriftRubyEnabled    = SettingKey[Boolean]("ruby-enabled", "ruby generation is enabled. Default - no")
-  val thriftRubyOptions    = SettingKey[Seq[String]]("thrift-java-options", "additional options for java thrift generation")
+  val thriftRubyOptions    = SettingKey[Seq[String]]("thrift-ruby-options", "additional options for ruby thrift generation")
   val thriftGenerateRuby   = TaskKey[Seq[File]]("generate-ruby", "Generate ruby source files from thrift sources.")
   val thriftRubyOutputDir  = SettingKey[File]("js-output-directory","Direcotry where generated javsacript files should be placed. default target/thrift-ruby")
   
