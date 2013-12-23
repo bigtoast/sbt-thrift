@@ -104,3 +104,19 @@ reload
 clean
 publish
 exit
+clean
+compile
+clean
+update
+compile
+test
+scalaVersion
++ compile
+exit
+clean
+compile
+package
+sbt clean
+clean
+publish
+exit

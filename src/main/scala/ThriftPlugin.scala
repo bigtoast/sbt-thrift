@@ -1,8 +1,6 @@
 package com.github.bigtoast.sbtthrift
 
 import sbt._
-import classpath._
-import Process._
 import Keys._
 
 object ThriftPlugin extends Plugin {
@@ -36,7 +34,7 @@ object ThriftPlugin extends Plugin {
 
     thriftSourceDir <<= (sourceDirectory in Compile){ _ / "thrift"},
 
-    thriftOutputDir <<= (sourceManaged in Compile).identity,
+    thriftOutputDir <<= (sourceManaged in Compile),
 
     thriftJavaEnabled := true,
 
