@@ -30,6 +30,11 @@ object ThriftPlugin extends Plugin {
   val thriftPythonOptions = SettingKey[Seq[String]]("thrift-python-options", "additional options for python thrift generation")
   val thriftPythonOutputDir = SettingKey[File]("python-output-directory", "Directory where generated python files should be placed. default target/thrift-python")
 
+  val thriftDelphiEnabled = SettingKey[Boolean]("delphi-enabled", "delphi generation is enabled. Default - no")
+  val thriftGenerateDelphi = TaskKey[Seq[File]]("generate-delphi", "Generate delphi sources from thrift files.")
+  val thriftDelphiOptions = SettingKey[Seq[String]]("thrift-delphi-options", "additional options for delphi thrift generation")
+  val thriftDelphiOutputDir = SettingKey[File]("delphi-output-directory", "Directory where generated delphi files should be placed. default target/thrift-delphi")
+
   lazy val thriftSettings = inConfig(Thrift)(Seq(
     thrift := "thrift",
     thriftSourceDir := (sourceDirectory in Compile).value / "thrift",
@@ -66,6 +71,14 @@ object ThriftPlugin extends Plugin {
         compileThrift(thriftSourceDir.value, thriftPythonOutputDir.value, thrift.value, "py", thriftPythonOptions.value, streams.value.log, streams.value.cacheDirectory / "thrift-python")
       Seq()
     },
+    thriftDelphiEnabled := false,
+    thriftDelphiOptions := Seq(),
+    thriftDelphiOutputDir := file("target/gen-delphi"),
+    thriftGenerateDelphi := {
+      if (thriftDelphiEnabled.value)
+        compileThrift(thriftSourceDir.value, thriftDelphiOutputDir.value, thrift.value, "delphi", thriftDelphiOptions.value, streams.value.log, streams.value.cacheDirectory / "thrift-delphi")
+      Seq()
+    },
     managedClasspath <<= (classpathTypes, update) map { (cpt, up) =>
       Classpaths.managedJars(Thrift, cpt, up)
     }
@@ -74,6 +87,7 @@ object ThriftPlugin extends Plugin {
     sourceGenerators in Compile <+= thriftGenerateRuby in Thrift,
     sourceGenerators in Compile <+= thriftGeneratePython in Thrift,
     sourceGenerators in Compile <+= thriftGenerateJs in Thrift,
+    sourceGenerators in Compile <+= thriftGenerateDelphi in Thrift,
     watchSources ++= (thriftSourceDir.value ** "*").get,
     ivyConfigurations += Thrift
   )
